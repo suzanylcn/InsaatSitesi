@@ -1,0 +1,217 @@
+﻿@using InsaatSite.Models
+<section class="home-slider owl-carousel">
+
+	@{
+		foreach (var item in (List<slider>)ViewBag.sliderListem)
+		{
+			<div class="slider-item" style="background-image: url('@Url.Content("~/resimler/slider")/@item.resim');" data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container">
+					<div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+						<div class="col-md-6 text ftco-animate pl-md-5">
+							<h1 class="mb-4">@item.baslik <span></span></h1>
+							<h3 class="subheading">@item.aciklama</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	}
+
+
+</section>
+
+
+
+
+<section class="ftco-services ftco-no-pt">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2">
+			<div class="col-md-8 text-center heading-section ftco-animate">
+				<h2 class="mb-4">Hizmetlerimiz</h2>
+			</div>
+		</div>
+		<div class="row">
+			@{foreach (var item in (List<hizmet>)ViewBag.hizmetListem)
+				{
+
+					<div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
+						<div class="media block-6 d-block text-center">
+							<img src="@Url.Content("~/resimler/hizmet")/@item.resim" style="width:100%; height:150px;" />
+							<div class="media-body p-2 mt-3">
+								<h3 class="heading">@item.baslik</h3>
+								<p>@item.acıklama</p>
+							</div>
+						</div>
+					</div>
+				}
+
+			}
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+	<div class="container-fluid p-0">
+		<div class="row no-gutters justify-content-center mb-5 pb-2">
+			<div class="col-md-6 text-center heading-section ftco-animate">
+				<h2 class="mb-4">Projelerimiz</h2>
+			</div>
+		</div>
+		<div class="row no-gutters">
+
+
+
+			@{foreach (var item in (List<proje>)ViewBag.projeListem)
+				{
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="project">
+							<img src="@Url.Content("~/resimler/proje")/@item.resim" style="height: 250px;width: 100%;object-fit: cover;" class="img-fluid">
+							<div class="text">
+								<span>@item.ad</span>
+								<h3><a href="@Url.Action("ProjeDetay","Home",new {id=item.id})">@item.aciklama</a></h3>
+							</div>
+							<a href="@Url.Content("~/resimler/proje")/@item.resim" class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="icon-expand"></span>
+							</a>
+						</div>
+					</div>
+				}
+			}
+
+		</div>
+	</div>
+</section>
+<section class="ftco-counter img" id="section-counter" style="background-image: url(@Url.Content("~/Assets/images/bg_3.jpg"));" data-stellar-background-ratio="0.5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+				<div class="block-18 d-flex">
+					<div class="text d-flex align-items-center">
+						<strong class="number" data-number="30">0</strong>
+					</div>
+					<div class="text-2">
+						<span>Yıllık <br>Deneyim</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+				<div class="block-18 d-flex">
+					<div class="text d-flex align-items-center">
+						<strong class="number" data-number="1500">0</strong>
+					</div>
+					<div class="text-2">
+						<span>Başarılı <br>Proje</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+				<div class="block-18 d-flex">
+					<div class="text d-flex align-items-center">
+						<strong class="number" data-number="100">0</strong>
+					</div>
+					<div class="text-2">
+						<span>Profesyonel <br>Ekİp</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+				<div class="block-18 d-flex">
+					<div class="text d-flex align-items-center">
+						<strong class="number" data-number="300">0</strong>
+					</div>
+					<div class="text-2">
+						<span>Mutlu <br>Müşterİmİz</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2">
+			<div class="col-md-8 text-center heading-section ftco-animate">
+				<h2 class="mb-4">Çalışanlarımız</h2>
+			</div>
+		</div>
+		<div class="row">
+
+			@{
+				foreach (var item in (List<calısan>)ViewBag.calisanListem)
+				{
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url('@Url.Content("~/resimler/calisan")/@item.resim');"></div>
+							</div>
+							<div class="text pt-3 text-center">
+								<h3>@item.ad</h3>
+								<h3>@item.soyad</h3>
+								<span class="position mb-2">@item.unvan</span>
+								<div class="faded">
+									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
+									<ul class="ftco-social text-center">
+										<li class="ftco-animate"><a href="@item.twitterLink"><span class="icon-twitter"></span></a></li>
+										<li class="ftco-animate"><a href="@item.facebookLink"><span class="icon-facebook"></span></a></li>
+										<li class="ftco-animate"><a href="@item.instagramLink"><span class="icon-instagram"></span></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				}
+			}
+
+		</div>
+	</div>
+</section>
+
+
+
+<section class="ftco-section bg-light">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2">
+			<div class="col-md-8 text-center heading-section ftco-animate">
+				<h2 class="mb-4">İnşaat Gündemi</h2>
+				<p>İnşaat sektörü ile ilgili haberler mi arıyorsunuz? Yeni konut projeleri, inşaat sektörü ve yapı sektöründen tüm haberler burada...</p>
+			</div>
+		</div>
+		<div class="row">
+			@foreach (var item in (List<haber>)ViewBag.haberListem)
+			{
+
+				<div class="col-md-4 ftco-animate">
+					<div class="blog-entry">
+						<a href="blog-single.html" class="block-20" style="background-image: url('@Url.Content("~/resimler/haber")/@item.resim');">
+							<div class="meta-date text-center p-2">
+								<span class="day">07</span>
+								<span class="mos">Kasım</span>
+								<span class="yr">2019</span>
+							</div>
+						</a>
+
+
+						<div class="text pt-4">
+							<h3 class="heading"><a href="#">@item.baslik</a></h3>
+							<p>@item.spot</p>
+							<div class="d-flex align-items-center mt-4">
+								<p class="mb-0"><a href="@Url.Action("Haberdetay","Home",new { id=item.id })" class="btn btn-primary">Daha Fazlası için <span class="ion-ios-arrow-round-forward"></span></a></p>
+								<p class="ml-auto mb-0">
+									<a href="#" class="mr-2">Admin</a>
+									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+
+		</div>
+	</div>
+</section>

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Giris";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+	<body>
+		<h1 class="title-agile text-center"></h1>
+		<div class="content-w3ls">
+			<div class="content-bottom">
+				<form action="Verify" method="post">
+					<div class="field-group">
+						<span class="fa fa-user" aria-hidden="true"></span>
+						<div class="wthree-field">
+							<input name="kullaniciAdi" id="text1" type="text" value="" placeholder="Kullanıcı Adı" required>
+						</div>
+					</div>
+					<div class="field-group">
+						<span class="fa fa-lock" aria-hidden="true"></span>
+						<div class="wthree-field">
+							<input name="sifre" id="myInput" type="Password" placeholder="Şifre">
+						</div>
+					</div>
+					<div class="field-group">
+						<div class="check">
+							<label class="checkbox w3l">
+								<input type="checkbox" onclick="myFunction()">
+								<i> </i>şifreyi göster
+							</label>
+						</div>
+						<!-- script for show password -->
+						<script>
+                        function myFunction() {
+                            var x = document.getElementById("myInput");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+						</script>
+						<!-- //script for show password -->
+					</div>
+					<div class="wthree-field">
+						<input id="saveForm" name="saveForm" type="submit" value="Giriş Yap" />
+					</div>
+					<ul class="list-login">
+						<li class="switch-agileits">
+							<label class="switch">
+								<input type="checkbox">
+								<span class="slider round"></span>
+							</label>
+						</li>
+						<li>
+							<a href="#" class="text-right">Şifreni mi unuttun?</a>
+						</li>
+						<li class="clearfix"></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		<div class="copyright text-center">
+			<p>
+				© 2020  Tüm Hakları Saklıdır.| 
+			</p>
+		</div>
+	</body>

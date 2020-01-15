@@ -1,0 +1,46 @@
+﻿@model IEnumerable<InsaatSite.Models.haber>
+@{
+	Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+<p>
+    @Html.ActionLink("Haber Ekle", "HaberEkLe","Panel")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.spot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resim)
+        </th>
+        <th>İşlem</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.spot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resim)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "HaberGuncelle", new {  id=item.id},new { @class="btn btn-warning"}) 
+            @Html.ActionLink("Sil", "HaberSil", new { id=item.id},new { @class="btn btn-info"})
+        </td>
+    </tr>
+}
+
+</table>

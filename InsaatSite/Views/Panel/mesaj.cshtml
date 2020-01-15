@@ -1,0 +1,38 @@
+﻿@model IEnumerable<InsaatSite.Models.mesaj>
+
+@{
+    ViewBag.Title = "mesaj";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>mesaj</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.konu)
+        </th>
+		<th>
+            @Html.DisplayNameFor(model => model.message)
+        </th>
+        <th>işlem</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.konu)
+        </td>
+		<td>
+            @Html.DisplayFor(modelItem => item.message)
+        </td>
+		<td>
+			@Html.ActionLink("Sil", "Edit", new { id = item.id }, new { @class = "btn btn-danger" })
+		</td>
+    </tr>
+}
+
+</table>

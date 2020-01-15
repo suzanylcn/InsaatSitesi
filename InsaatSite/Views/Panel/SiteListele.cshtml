@@ -1,0 +1,70 @@
+﻿@model IEnumerable<InsaatSite.Models.ayar>
+
+@{
+    ViewBag.Title = "SiteListele";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>Site Listele</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.firmaAdi)
+		</th>
+
+		<th>
+			@Html.DisplayNameFor(model => model.logo)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.mail)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.facebook)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.twitter)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.instagram)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.adres)
+		</th>
+		<th>İşlem</th>
+	</tr>
+
+@foreach (var item in Model) {
+<tr>
+	<td>
+		@Html.DisplayFor(modelItem => item.firmaAdi)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.logo)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.mail)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.facebook)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.twitter)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.instagram)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.adres)
+	</td>
+	<td>
+		@Html.ActionLink("Düzenle", "SiteGuncelle", new { id = item.id }, new { @class = "btn btn-warning" })
+	</td>
+</tr>
+}
+
+
+</table>

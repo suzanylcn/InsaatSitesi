@@ -1,0 +1,45 @@
+﻿@model IEnumerable<InsaatSite.Models.slider>
+
+@{
+    ViewBag.Title = "SliderListele";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>Slider Listele</h2>
+
+<p>
+    @Html.ActionLink("Slider Ekle", "SliderEkleDb","Panel")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resim)
+        </th>
+        <th>İşlem</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resim)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "SliderGuncelle", new {  id=item.id },new {@class="btn btn-warning" }) 
+            @Html.ActionLink("Sil", "SliderSil", new {  id=item.id },new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

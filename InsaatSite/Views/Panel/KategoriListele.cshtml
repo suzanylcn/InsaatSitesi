@@ -1,0 +1,33 @@
+﻿@model IEnumerable<InsaatSite.Models.kategori>
+
+@{
+    ViewBag.Title = "KategoriListele";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>Kategori Listele</h2>
+
+<p>
+    @Html.ActionLink("Kategori Ekle", "KategoriEkleDb","Panel")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori)
+        </th>
+        <th>İşlem</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "KategoriGuncelle", new { id=item.id },new { @class = "btn btn-warning btn xs" }) 
+            @Html.ActionLink("Sil", "KategoriSil", new {id=item.id},new { @class = "btn btn-info btn xs" })
+        </td>
+    </tr>
+}
+
+</table>

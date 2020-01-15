@@ -1,0 +1,26 @@
+﻿@using InsaatSite.Models
+@model InsaatSite.Models.haber
+@{
+	ViewBag.Title = "Haberdetay";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<section class="ftco-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 ftco-animate">
+				<h2 class="mb-3">@Model.baslik</h2>
+				<p>
+					<img src="@Url.Content("~/resimler/haber")/@Model.resim" class="img-fluid">
+				</p>
+				<p>@Model.spot</p>
+
+				<p>@Model.detay</p>
+			</div>
+		</div>
+	</div>
+</section>
+

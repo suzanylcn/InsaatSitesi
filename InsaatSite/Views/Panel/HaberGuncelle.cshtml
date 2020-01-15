@@ -1,0 +1,56 @@
+﻿@model InsaatSite.Models.haber
+@{
+	Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+@using (Html.BeginForm("HaberGuncelleDb", "Panel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<input type="hidden" name="id" value="@Model.id" />
+
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<h4>haber</h4>
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="form-group">
+			@Html.LabelFor(model => model.baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.baslik, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.baslik, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.spot, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.spot, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.spot, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.detay, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.detay, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.detay, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-2"> Dosya yükle </label>
+			<div class="col-md-10">
+				<input class="form-control" type="file" name="haberResim" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Kaydet" class="btn btn-warning" />
+			</div>
+		</div>
+	</div>
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>

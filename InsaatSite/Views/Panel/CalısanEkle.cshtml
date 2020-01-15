@@ -1,0 +1,92 @@
+﻿@model InsaatSite.Models.calısan
+
+@{
+	ViewBag.Title = "CalısanEkle";
+	Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>Çalışan Ekle</h2>
+
+@using (Html.BeginForm("CalısanEkleDb", "Panel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<h4>calısan</h4>
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="form-group">
+			@Html.LabelFor(model => model.ad, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.ad, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.ad, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.soyad, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.soyad, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.soyad, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.unvan, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.unvan, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.unvan, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-2"> Dosya yükle </label>
+			<div class="col-md-10">
+				<input id="pic" class="form-control" type="file" name="calısanResim" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.facebookLink, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.facebookLink, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.facebookLink, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.instagramLink, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.instagramLink, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.instagramLink, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.twitterLink, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.twitterLink, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.twitterLink, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Kaydet" class="btn btn-info" />
+			</div>
+		</div>
+	</div>
+}
+
+
+<div id="calisanList">
+	@Html.Action("CalisanListelePartial", "Panel")
+</div>
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<InsaatSite.Models.hizmet>
+
+@{
+    ViewBag.Title = "HizmetListele";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<h2>HizmetListele</h2>
+
+<p>
+    @Html.ActionLink("Hizmet Ekle", "HizmetEkleDb",	"Panel")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.acıklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resim)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.acıklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resim)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "HizmetGuncelle","Panel", new {id=item.id },new { @class = "btn btn-warning btn xs" }) 
+            
+            @Html.ActionLink("Sil", "HizmetSil","Panel" , new {  id=item.id },new { @class = "btn btn-info btn xs" })
+        </td>
+    </tr>
+}
+
+</table>

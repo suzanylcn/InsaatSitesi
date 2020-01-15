@@ -1,0 +1,67 @@
+﻿
+@model IEnumerable<InsaatSite.Models.calısan>
+
+@{
+	ViewBag.Title = "CalisanListele";
+}
+
+<h2>Çalışan Listele</h2>
+
+<p>
+	@Html.ActionLink("Çalışan Ekle", "CalısanEkle", "Panel")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.ad)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.soyad)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.unvan)
+		</th>
+		
+		<th>
+			@Html.DisplayNameFor(model => model.facebookLink)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.instagramLink)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.twitterLink)
+		</th>
+		<th>İşlem</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.ad)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.soyad)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.unvan)
+			</td>
+			
+			<td>
+				@Html.DisplayFor(modelItem => item.facebookLink)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.instagramLink)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.twitterLink)
+			</td>
+			<td>
+				
+				@Html.ActionLink("Düzenle", "CalısanGuncelle", "Panel", new { id = item.id }, new { @class = "btn btn-warning btn xs" })
+				@Html.ActionLink("Sil", "CalısanSil", "Panel", new { id = item.id }, new { @class = "btn btn-info btn xs" })
+			</td>
+		</tr>
+	}
+
+</table>

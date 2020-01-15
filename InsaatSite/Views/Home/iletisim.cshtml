@@ -1,0 +1,84 @@
+﻿@using InsaatSite.Models
+
+@{
+	ayar siteAyar = (ayar)ViewBag.siteListem;
+}
+
+@{
+	ViewBag.Title = "iletisim";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+	<div class="container">
+
+		<h2 class="my-5">iletisim</h2>
+		<div class="row d-flex align-items-stretch no-gutters">
+			<div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
+				
+				<form action="@Url.Action("mesajkaydet","Home")" method="post">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Adınız">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Email">
+					</div>
+					<div class="form-group">
+						<input name="konu" type="text" class="form-control" placeholder="Konu">
+					</div>
+					<div class="form-group">
+						<textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Mesaj"></textarea>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Gönder" class="btn btn-primary py-3 px-5">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6 d-flex align-items-stretch">
+				
+				<iframe src="@siteAyar.harita" style="width:100%;height:100%;border:none;"></iframe>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ftco-section contact-section">
+	<div class="container">
+
+		<div class="row d-flex mb-5 contact-info">
+			<div class="col-md-12 mb-4">
+				<h2 class="h4">İletişim Bilgileri</h2>
+			</div>
+			<div class="w-100"></div>
+
+
+			<div class="col-md-3 d-flex">
+				<div class="bg-light d-flex align-self-stretch box p-4">
+					<p><span>Adres:</span> @siteAyar.adres</p>
+				</div>
+			</div>
+			<div class="col-md-3 d-flex">
+				<div class="bg-light d-flex align-self-stretch box p-4">
+					<p><span>Tel:</span> <a href="tel://1234567920">@siteAyar.tel</a></p>
+				</div>
+			</div>
+			<div class="col-md-3 d-flex">
+				<div class="bg-light d-flex align-self-stretch box p-4">
+					<p><span>Email:</span> <a href="#">@siteAyar.mail</a></p>
+				</div>
+			</div>
+			<div class="col-md-3 d-flex">
+				<div class="bg-light d-flex align-self-stretch box p-4">
+					<p><span>Website</span> <a href="#">yoursite.com</a></p>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
+</section>
+
+

@@ -1,0 +1,18 @@
+﻿@using InsaatSite.Models
+
+
+<div class="form-group">
+	<label class="control-label col-md-2">Kategori Adı</label>
+	<div class="col-md-10">
+		<select class="form-control" name="kategori">
+			@{
+				foreach (var item in (List<kategori>)ViewBag.KategoriListem)
+				{
+					<option value="@item.id"> @item.Kategori </option>
+
+				}
+			}
+		</select>
+
+	</div>
+</div>
